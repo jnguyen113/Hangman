@@ -11,31 +11,32 @@
 
         $validationFail = 0;
         //validating there is a value for each field
-        if(isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password'])     ) {
+        if(isset($_POST['username']) && isset($_POST['password'])     ) {
         }
-        /*  validating name, can't be empty         */
-        if (empty($_POST["name"])) {
-            $validationFail = $validationFail + 1;
-        }
-        /*  validating name, can't be empty         */
+
+        /*  validating username, can't be empty         */
         if (empty($_POST["username"])) {
             $validationFail = $validationFail + 1;
         }
-        /*  validating name, can't be empty         */
+        /*  validating password, can't be empty         */
         if (empty($_POST["password"])) {
             $validationFail = $validationFail + 1;
         }
+        /*if validation passes with no errors append to singles.txt and welcome user */
+        if ($validationFail == 0) {
+            $userInfo = "\n" . $_POST["username"] . "," . $_POST["password"]; 
+            file_put_contents("credentials.txt", $userInfo, FILE_APPEND);
 
         ?>
 
         <h3>Thank you!</h3>
         <?php
             echo "Welcome to Hangman, ";
-            echo $_POST["name"] 
+            echo $_POST["username"] 
         ?>!
             <br>
             <br>
-            Now <a href="matches.php">log in to see your matches!</a>
+            Now <a href="login.php">log in play!</a>
             <br>
             <br>
         <?php

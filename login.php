@@ -12,7 +12,7 @@
 
 
         <?php session_start(); /* Starts the session */
-            $user = unserialize(file_get_contents('userdetail.txt'));
+            $user = file_get_contents('credentials.txt');
             echo '<h3>Use this to log in:</h3>';
             print_r($user);
             /* Check Login form submitted */	
@@ -38,10 +38,6 @@
         ?>
         <br>
         <form method="post" name="Login_Form">
-        <p>NOTE: Login was extra feature: if you created username & password upon signup, the values above will change.
-        <br>If not, use the values given in the array above first value: ['Username'] => second value: 'Password'</p>
-        <p>Success: direct back to index.php, unsuccess: error message </p>
-
                 <?php if(isset($msg)){?>
               
                 <?php 

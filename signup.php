@@ -13,11 +13,6 @@
         <form action="signup-submit.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>New User Signup: </legend>
-                <!---name ahs 16-character box -->
-                <strong>Name: </strong>
-                    <input type="text" name="name" size="16">
-                    <br>
-                    <br>
                 <!---Username has 16-character box -->
                 <strong>Username: </strong>
                     <input type="text" name="username" size="16">
