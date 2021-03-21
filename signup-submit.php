@@ -7,6 +7,9 @@
     </head>
 
     <body>
+    <?php 
+        include 'common.php'; 	
+    ?>
     <?php
         $user = [];
         function array_push_assoc($user, $username, $password){
@@ -67,5 +70,9 @@
         }
         ?>
 
+        <?php
+			//footer function 
+			footerFunction();
+		?>
     </body>
 </html>

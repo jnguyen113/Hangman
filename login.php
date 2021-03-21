@@ -10,7 +10,9 @@
 
     <body>
     
-
+    <?php 
+        include 'common.php'; 	
+    ?>
 
 
     <?php session_start(); /* Starts the session */
@@ -47,7 +49,7 @@
     }
     ?>
     <form action="" method="post" name="Login_Form">
- 
+        <div id="form">
             <?php if(isset($msg)){?>
             <tr>
             <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
@@ -57,19 +59,25 @@
             <legend>Login: </legend>
                 <!---username has 16-character box -->
                 <strong>Username: </strong>
-                    <input type="text" name="username" class="Input" size="16">
+                    <input type="text" name="username" class="input" size="16">
                     <br>
                     <br>
                 <!---password has 16-character box -->
                 <strong>Password: </strong>
-                    <input type="text" name="password" class="Input" size="16">
+                    <input type="text" name="password" class="input" size="16">
                     <br>
                     <br>
                 <!---submit button -->
-                <input name="submit" type="submit" value="Login" class="Button3">
+                <input name="submit" type="submit" value="Login" class="function">
             </fieldset>
-            
+        </div
     </form>
+
+    <?php
+			//footer function 
+			footerFunction();
+            backButton();
+    ?>
 
     </body>
 </html>
