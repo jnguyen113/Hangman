@@ -8,7 +8,14 @@
 
     <body>
     <?php
+        $user = [];
+        function array_push_assoc($user, $username, $password){
+            $user[$username] = $password;
+            return $user;
+       }
+    ?>
 
+    <?php
         $validationFail = 0;
         //validating there is a value for each field
         if(isset($_POST['username']) && isset($_POST['password'])     ) {
@@ -22,13 +29,16 @@
         if (empty($_POST["password"])) {
             $validationFail = $validationFail + 1;
         }
-        /*if validation passes with no errors append to singles.txt and welcome user */
+        /*if validation passes with no errors append to userdetail.txt and welcome user */
         if ($validationFail == 0) {
-            $userInfo = "\n" . $_POST["username"] . "," . $_POST["password"]; 
-            file_put_contents("credentials.txt", $userInfo, FILE_APPEND);
-
-            $user = array($_POST["username"], $_POST["password"]);
+            $user_credentials = array();
+            $user_username=$_POST['username'];
+            $user_password=$_POST['password'];
+            //$user = array_push_assoc($user, $user_username, $user_password);
+            $user = "\n" . $_POST["username"] ." " . $_POST["password"]; 
             file_put_contents("userdetail.txt", $user, FILE_APPEND);
+            print_r($user);
+         
 
         ?>
 
@@ -36,6 +46,7 @@
         <?php
             echo "Welcome to Hangman, ";
             echo $_POST["username"] 
+           
         ?>!
             <br>
             <br>
@@ -51,9 +62,7 @@
                 echo "We're sorry. You submitted invalid user information. Please go back and try again.";
                 echo "<br>";
                 echo "<br>";
-                echo $_POST["username"];
                 echo "<br>";
-                echo $_POST["password"];
               
         }
         ?>
