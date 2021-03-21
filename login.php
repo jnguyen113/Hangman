@@ -12,7 +12,16 @@
 
 
         <?php session_start(); /* Starts the session */
-            $user = file_get_contents('credentials.txt');
+        /*
+            $array = file_get_contents('credentials.txt');
+            $file = fopen('credentials.txt', 'r');
+            if($file){
+                $user = explode("\n", fread($file, filesize('credentials.txt')));
+            }
+            */
+            $user = unserialize(file_get_contents('userdetail.txt'));
+            $fp = fopen('userdetail.txt', 'r');
+
             echo '<h3>Use this to log in:</h3>';
             print_r($user);
             /* Check Login form submitted */	
@@ -35,6 +44,7 @@
                     $msg="<span style='color:red'>Invalid Login Details</span>";
                 }
             }
+
         ?>
         <br>
         <form method="post" name="Login_Form">
