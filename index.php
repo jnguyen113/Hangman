@@ -15,7 +15,7 @@
             <a href="login.php">
                 <button class="function">Log In</button>
             </a>
-            <a href="">
+            <a href="newgame.php">
                 <button class="function">Play</button>
             </a>
             <a href="login.php">
