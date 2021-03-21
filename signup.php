@@ -6,14 +6,13 @@
         <title>Sign Up Page</title>
         <link href="style.css" type="text/css" rel="stylesheet">
     </head>
-
     <body>
         <br>
         <!---Form to create new account & encodes data through POST-->
         <form action="signup-submit.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>New User Signup: </legend>
-                <!---Username has 16-character box -->
+                <!---username has 16-character box -->
                 <strong>Username: </strong>
                     <input type="text" name="username" size="16">
                     <br>
@@ -28,8 +27,5 @@
             </fieldset>
         </form>
         <br>
-
     </body>
 </html>
-
-
