@@ -20,18 +20,19 @@ div {
 
 /* Layout */
 .main {
- display: flex;
  width: 80%;
  height: 90%;
  max-height: 90%;
- border: 1px solid red;
+}
+
+.flex {
+ display: flex;
 }
 
 .col_hangman {
  flex: 0 1 50%;
  min-height: 100%;
  max-width: 50%;
- border: 1px solid red;
  padding: .5em;
 }
 
@@ -51,7 +52,6 @@ div {
  max-width: 100%;
  padding: .5em;
  overflow: hidden;
- border: 1px solid yellow;
 }
 
 .center {
@@ -102,6 +102,10 @@ div {
  margin: 6px;
  text-align: center;
  padding: 6px 0;
+}
+
+.blank {
+ background: none;
 }
 
 /* Buttons */
@@ -194,4 +198,60 @@ button.letter[disabled] {
  font-weight: normal;
  font-style: normal;
  font-display: swap;
+}
+
+/* New Game */
+.box {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.box button {
+ font-size: 1.4em;
+ flex: 1 1 41%;
+ display: flex;
+ flex-flow: column nowrap;
+ justify-content: center;
+ margin: 10px;
+ border-width: 30px;
+ border-style: solid;
+ border-image: url(images/green_button11.png);
+ border-image-slice: 30;
+ border-image-repeat: round;
+ background: url(images/green_button11.png) no-repeat center center fixed;
+ background-size: 100% 100%;
+ border-width: 8px;
+ border-image-slice: 8;
+ cursor: pointer;
+ user-select: none;
+}
+
+.box button:hover {
+ border-image: url(images/green_button09.png);
+ background: url(images/green_button09.png) no-repeat center center fixed;
+ border-width: 30px;
+ border-style: solid;
+ border-image-slice: 30;
+ border-image-repeat: round;
+ background-size: 100% 100%;
+ border-width: 8px;
+ border-image-slice: 8;
+}
+
+.box button:active {
+ border-image: url(images/green_button07.png);
+ background: url(images/green_button07.png) no-repeat center center fixed;
+ border-width: 30px;
+ border-style: solid;
+ border-image-slice: 30;
+ border-image-repeat: round;
+ background-size: 100% 100%;
+ border-width: 8px;
+ border-image-slice: 8;
+}
+
+.category_header {
+ flex: 0 0 100%;
+ text-align: center;
+ font-size: 2em;
 }

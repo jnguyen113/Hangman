@@ -50,7 +50,7 @@ hangman_parse_input();
     hangman_output_overlay("<span class=\"red\">You Lost!</span>");
   }
   ?>
-  <div class="main">
+  <div class="main flex">
     <div class="col_hangman">
       <div class="progress_container">
         <img src="images/noose.png" alt="noose" id="noose">
@@ -64,11 +64,15 @@ hangman_parse_input();
         <button class="letter"><?php echo hangman_guesses_left(); ?></button>
         */
         ?>
+        <br>
+        <?php
+        hangman_output_wrong();
+        ?>
       </div>
     </div>
     <div class="col_game">
       <div class="row_half" id="top">
-        <h2 class="future center">(Category)</h2>
+        <h1 class="future center">(<?php echo _get("hangman_category"); ?>)</h1>
         <div class="word center">
           <?php
           hangman_output_word();

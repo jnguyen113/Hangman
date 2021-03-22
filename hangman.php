@@ -28,24 +28,19 @@ function hangman_acquire()
   /* Game in progress */
   if (isset($_SESSION['hangman_game']) && $_SESSION['hangman_game'] == true) {
   } else {
-    /*Start a new game */
-    $_SESSION['hangman_game'] = true;
-    hangman_start();
+    /*Game not started but we somehow got here?*/
+    die("session not started!");
   }
 }
 
 /* starts a new game of hangman */
-function hangman_start()
+function hangman_start($word, $category)
 {
-  _set("hangman_word", hangman_word());
-  _set("hangman_category", "all");
+  _set("hangman_word", $word);
+  _set("hangman_category", $category);
   _set("hangman_correct", array());
   _set("hangman_wrong", array());
-}
-
-function hangman_word()
-{
-  return "DOG";
+  _set("hangman_game", true);
 }
 
 function hangman_parse_input()
@@ -77,8 +72,17 @@ function hangman_output_letters()
       echo "<button class=\"letter\" type=\"submit\" name=\"choice\" value=\"" . $char . "\">" . $char . "</button>";
     }
   }
-  echo "<br><br><button class=\"letter\" type=\"submit\" name=\"destroy\" value=\"1\">Reset</button>";
+  /* Unneeded */
+  //echo "<br><br><button class=\"letter\" type=\"submit\" name=\"destroy\" value=\"1\">Reset</button>";
   echo "</form>";
+}
+
+function hangman_output_wrong()
+{
+  $wrong = _get("hangman_wrong");
+  foreach ($wrong as $letter) {
+    echo "<button class=\"letter\" disabled>" . $letter . "</button>";
+  }
 }
 
 function hangman_output_word()
@@ -86,6 +90,10 @@ function hangman_output_word()
   $word = _get("hangman_word");
   $letters = str_split($word);
   foreach ($letters as $char) {
+    if ($char == ' ') {
+      echo "<div class=\"underscore blank\">&nbsp;</div>";
+      continue;
+    }
     if (in_array($char, _get("hangman_correct"))) {
       echo "<div class=\"underscore\">" . $char . "</div>";
     } else {
@@ -97,8 +105,8 @@ function hangman_output_word()
 function hangman_output_overlay($text)
 {
   $word = _get("hangman_word");
-  $word_len = strlen($word);
-  $guesses = count(_get("hangman_wrong")) + strlen($word);
+  $word_len = hangman_word_len();
+  $guesses = count(_get("hangman_wrong")) + $word_len;
   $pct = round(($word_len / $guesses) * 100.0, 2);
   if (hangman_loss()) {
     $pct = round(0, 2);
@@ -134,10 +142,24 @@ function hangman_output_image()
 
 /* Win/Loss/Progress */
 
+function hangman_word_len()
+{
+  $word = _get("hangman_word");
+  $len = strlen($word) - substr_count($word, " ");
+  return $len;
+}
+
 function hangman_won()
 {
   /* Check all letters are present */
-  $won = count(_get("hangman_correct")) >= strlen(_get("hangman_word"));
+  echo "Word:" . _get("hangman_word") . ":" . hangman_word_len() . "<br>\n";
+  /* check to see if all letters have been filled */
+  $temp = _get("hangman_word");
+  foreach (_get("hangman_correct") as $letter) {
+    $temp = str_replace($letter, "", $temp);
+  }
+  $temp = str_replace(" ", "", $temp);
+  $won = strlen($temp) == 0;
   return $won;
 }
 
