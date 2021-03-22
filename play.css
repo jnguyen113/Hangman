@@ -255,3 +255,13 @@ button.letter[disabled] {
  text-align: center;
  font-size: 2em;
 }
+
+#back{
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+}
+
+#back:hover{
+   transform:scale(1.2);
+}

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Signup - Submit Page</title>
-        <link href="https://codd.cs.gsu.edu/~lhenry23/Web/HW/Asg03/nerdieluv.css" type="text/css" rel="stylesheet">
+        <link href="loginsubmit.css" type="text/css" rel="stylesheet">
     </head>
 
     <body>
@@ -40,20 +40,19 @@
             //$user = array_push_assoc($user, $user_username, $user_password);
             $user = "\n" . $_POST["username"] ." " . $_POST["password"]; 
             file_put_contents("userdetail.txt", $user, FILE_APPEND);
-            print_r($user);
-         
 
         ?>
 
-        <h3>Thank you!</h3>
+        <legend>Congratulations, Your Sign Up was Successful!</legend>
         <?php
-            echo "Welcome to Hangman, ";
-            echo $_POST["username"] 
+            echo "<strong class='welcome'>Welcome to Hangman, </strong>";
+            echo '<strong class="welcome"> ' . $_POST["username"] . '</strong>' ;
            
-        ?>!
+        ?>
+        
             <br>
             <br>
-            Now <a href="login.php">log in play!</a>
+            <a href="login.php">Click here to log in and play!</a>
             <br>
             <br>
         <?php

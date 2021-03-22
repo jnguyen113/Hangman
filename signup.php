@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Sign Up Page</title>
-        <link href="style.css" type="text/css" rel="stylesheet">
+        <link href="loginsubmit.css" type="text/css" rel="stylesheet">
     </head>
     <body>
     <?php 

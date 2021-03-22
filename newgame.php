@@ -13,6 +13,7 @@ session_start();
 
 require_once('hangman.php');
 require_once('util.php');
+backbutton();
 
 /* reads categories to then read words */
 function read_categories()

@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Login Page</title>
-		<link href="style.css" type="text/css" rel="stylesheet">
+		<link href="loginsubmit.css" type="text/css" rel="stylesheet">
 	</head>
 
 
@@ -16,7 +16,6 @@
 
 
     <?php session_start(); /* Starts the session */
-        
         $file = "userdetail.txt";
         $fh = fopen($file, 'r');
         $data = fread($fh, filesize($file));
@@ -29,7 +28,6 @@
             
         }
         fclose($fh);
-        print_r($user);
         /* Check Login form submitted */
         if(isset($_POST['submit'])){
           
@@ -40,7 +38,7 @@
             if (isset($user[$username]) && $user[$username] == $password){
             /* Success: Set session variables and redirect to Protected page  */
             $_SESSION['UserData']['username']=$user[$username];
-            header("location:index.php");
+            header("location:newgame.php");
             exit;
             } else {
             /*Unsuccessful attempt: Set error message */

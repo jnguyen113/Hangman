@@ -173,3 +173,11 @@ function hangman_guesses_left()
 {
   return HANGMAN_CHANCES - count(_get("hangman_wrong"));
 }
+
+function backButton(){
+  echo
+  '<div id="back">
+    <a href="index.php"><img src="images/back.png" alt="back width="100" height="100"></a>
+  </div>
+  ';
+}

@@ -31,10 +31,10 @@
 
             </div>
             <div class="right_button">
-                <a href="">
+                <a href="newgame.php">
                     <button class="function">Play</button>
                 </a>
-                <a href="login.php">
+                <a href="leaderboard.php">
                     <button class="function">Leaderboard</button>
                 </a>
             </div>
