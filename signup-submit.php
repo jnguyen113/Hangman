@@ -1,3 +1,8 @@
+<!--- File: signup-submit.php
+ * Project: Project 2
+ * File Created: 3/20/21
+ * Author: Johnathan Nguyen
+ -->
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
@@ -9,13 +14,6 @@
     <body>
     <?php 
         include 'common.php'; 	
-    ?>
-    <?php
-        $user = [];
-        function array_push_assoc($user, $username, $password){
-            $user[$username] = $password;
-            return $user;
-       }
     ?>
 
     <?php
@@ -37,12 +35,10 @@
             $user_credentials = array();
             $user_username=$_POST['username'];
             $user_password=$_POST['password'];
-            //$user = array_push_assoc($user, $user_username, $user_password);
             $user = "\n" . $_POST["username"] ." " . $_POST["password"]; 
             file_put_contents("userdetail.txt", $user, FILE_APPEND);
 
         ?>
-
         <legend>Congratulations, Your Sign Up was Successful!</legend>
         <?php
             echo "<strong class='welcome'>Welcome to Hangman, </strong>";

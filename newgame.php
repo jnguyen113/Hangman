@@ -10,7 +10,15 @@
  */
 
 session_start();
-
+//logout feature: johnathan's portion
+if(!isset($_SESSION['UserData']['username'])){
+  header("location:index.php");
+  exit;
+}
+echo 	'<div id="footer">
+          <a href="logout.php"><img src="images/logout.png" alt="back width="100" height="100"></a>
+        </div>';
+//end of johnathan's portion
 require_once('hangman.php');
 require_once('util.php');
 backbutton();

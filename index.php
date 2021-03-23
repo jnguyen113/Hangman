@@ -1,3 +1,8 @@
+<!--- File: index.php
+ * Project: Project 2
+ * File Created: 3/20/21
+ * Author: Johnathan Nguyen
+ -->
 <!DOCTYPE html>
 <html lang="en-us">
 
@@ -11,13 +16,10 @@
     <?php 
         include 'common.php'; 	
     ?>
-    <?php session_start(); /* Starts the session */
-        if(!isset($_SESSION['UserData']['username'])){
-        header("location:login.php");
-        exit;
-        }
-    ?>
-    Congratulation! You have logged into password protected page. <a href="logout.php">Click here</a> to Logout.
+        <h1>Welcome to Hangman</h1>
+        <img src="images/noose.png" alt="noose">
+
+        <img src="images/step_6.png" alt="figure">
         <div id="buttons">
         
         

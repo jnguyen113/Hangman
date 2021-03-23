@@ -1,12 +1,27 @@
 body{
-    background-image: url(images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: 110%;
+    background-image: url(images/bkg.png);
+    background-repeat: repeat;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-family: 'Kenney Future';
+    font-weight: normal;
+    font-style: normal;
 }
 
+h1{
+    width: 1500px;
+    margin: auto;
+    font-size: 4em;
+    border: 2px solid black;
+    color: green;
+}
+img{
+    margin-top: 2%;
+}
 #buttons{
-    margin-top: 32%;
-    margin-left:35%;
+   
+    margin-left:30%;
 }
 
 /* Fonts */

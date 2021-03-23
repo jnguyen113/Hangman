@@ -265,3 +265,12 @@ button.letter[disabled] {
 #back:hover{
    transform:scale(1.2);
 }
+
+#footer{
+    position: absolute;
+    right: 50;
+    top: 50;
+}
+#footer:hover{
+    transform:scale(1.2);
+}

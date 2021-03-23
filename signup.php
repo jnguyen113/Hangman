@@ -1,3 +1,8 @@
+<!--- File: signup.php
+ * Project: Project 2
+ * File Created: 3/20/21
+ * Author: Johnathan Nguyen
+ -->
 <!DOCTYPE html>
 <html lang="en-us">
 
