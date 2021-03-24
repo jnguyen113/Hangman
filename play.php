@@ -13,6 +13,7 @@ session_start();
 
 require_once('hangman.php');
 require_once('util.php');
+require_once('user_mgmt.php');
 
 /* helper for debugging */
 if (isset($_REQUEST['destroy'])) {
@@ -39,11 +40,13 @@ hangman_parse_input();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hangman | Play</title>
+  <link href="style.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
   <link href="play.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
 </head>
 
 <body>
   <?php
+  /* check win loss and update user stats */
   if (hangman_won()) {
     hangman_output_overlay("<span class=\"grn\">Well done!</span>");
   } else if (hangman_loss()) {
@@ -86,6 +89,10 @@ hangman_parse_input();
       </div>
     </div>
   </div>
+  <?php
+  /* Footer */
+  footerFunction();
+  ?>
 </body>
 
 </html>

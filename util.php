@@ -10,6 +10,26 @@
  */
 
 
+function footerFunction()
+{
+  echo
+    '
+  <div id="w3c">
+    <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
+    <a href=""><img src="images/css.png" alt="css val"></a>
+  </div>
+  ';
+}
+
+function backButton()
+{
+  echo
+    '<div id="back">
+    <a href="index.php"><img src="images/back.png" alt="back" width="100" height="100"></a>
+  </div>
+  ';
+}
+
 /* helper to reduce typing */
 function _set($var, $val)
 {
@@ -27,4 +47,22 @@ function rs($length = 8)
   $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
   $rs = substr(str_shuffle($chars), 0, $length);
   return $rs;
+}
+
+/* Read file as csv into array */
+function csv2array($filename)
+{
+  $array = array_map('str_getcsv', file($filename));
+  return $array;
+}
+
+/* Write array to a csv file*/
+function array2csv($filename, $array)
+{
+  $fd = fopen($filename, "w");
+
+  foreach ($array as $line) {
+    fputcsv($fd, $line);
+  }
+  fclose($fd);
 }

@@ -11,14 +11,12 @@
 		<title>Hangman</title>
 		<link href="style.css" type="text/css" rel="stylesheet">
 	</head>
-	<?php 
-        include 'common.php'; 	
-    ?>
-	
-	<?php 
+	<?php
+		require_once('util.php');
+
 		session_start(); /* Starts the session */
 		session_destroy(); /* Destroy started session */
-		header("location:index.php");  
+		header("location:index.php");
 		/* Redirect to login page */exit;
 	?>
 

@@ -3,84 +3,77 @@
  * File Created: 3/20/21
  * Author: Johnathan Nguyen
  -->
+<?php
+session_start(); /* Starts the session */
+require_once('util.php');
+require_once('user_mgmt.php');
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Login Page</title>
-		<link href="loginsubmit.css" type="text/css" rel="stylesheet">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="loginsubmit.css" type="text/css" rel="stylesheet">
+</head>
 
 
-    <body>
-    
-    <?php 
-        include 'common.php'; 	
-    ?>
+<body>
+    <?php
+    $users = get_users();
+    /* Check Login form submitted */
+    if (isset($_POST['submit'])) {
 
-    <?php 
-        session_start(); /* Starts the session */
-        $file = "userdetail.txt";
-        $fh = fopen($file, 'r');
-        $data = fread($fh, filesize($file));
-        $user = array();
-        $my_array = explode("\n", $data);
-        foreach($my_array as $line)
-        {
-            $tmp = explode(" ", $line);
-            $user[$tmp[0]] = $tmp[1];
-            
+        $username = isset($_POST['username']) ? $_POST['username'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $temp_user = check_user_exists($username);
+
+        /* Check username and password existence in defined array */
+        if ($temp_user !== false) {
+            if ($temp_user['pass'] == $password) {
+                /* Success: Set session variables and redirect to Protected page  */
+                $_SESSION['UserData']['username'] = $username;
+                header("location:newgame.php");
+                exit;
+            }
         }
-        fclose($fh);
-        /* Check Login form submitted */
-        if(isset($_POST['submit'])){
-          
-            $username = isset($_POST['username']) ? $_POST['username'] : '';
-            $password = isset($_POST['password']) ? $_POST['password'] : '';
-
-            /* Check username and password existence in defined array */
-            if (isset($user[$username]) && $user[$username] == $password){
-            /* Success: Set session variables and redirect to Protected page  */
-            $_SESSION['UserData']['username']=$user[$username];
-            header("location:newgame.php");
-            exit;
-            } else {
-            /*Unsuccessful attempt: Set error message */
-            $msg="<span style='color:red'>Invalid Login Details</span>";
-        }
+        /*Unsuccessful attempt: Set error message */
+        $msg = "<span style='color:red'>Invalid Login Details</span>";
     }
     ?>
-    <form action="" method="post" name="Login_Form">
+    <form method="post" name="Login_Form">
         <div id="form">
-            <?php if(isset($msg)){?>
-            <tr>
-            <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
-            </tr>
+            <?php if (isset($msg)) { ?>
+                <table>
+                    <tr>
+                        <td><?php echo $msg; ?></td>
+                    </tr>
+                </table>
             <?php } ?>
-            <tr>
-            <legend>Login: </legend>
+            <fieldset>
+                <legend>Login: </legend>
                 <!---username has 16-character box -->
                 <strong>Username: </strong>
-                    <input type="text" name="username" class="input" size="16">
-                    <br>
-                    <br>
+                <input type="text" name="username" class="input" size="16">
+                <br />
+                <br />
                 <!---password has 16-character box -->
                 <strong>Password: </strong>
-                    <input type="text" name="password" class="input" size="16">
-                    <br>
-                    <br>
+                <input type="text" name="password" class="input" size="16">
+                <br />
+                <br />
                 <!---submit button -->
                 <input name="submit" type="submit" value="Login" class="function">
             </fieldset>
-        </div
+        </div>
     </form>
 
     <?php
-			//footer function 
-			footerFunction();
-            backButton();
+    //footer function
+    footerFunction();
+    backButton();
     ?>
 
-    </body>
+</body>
+
 </html>

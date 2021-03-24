@@ -12,14 +12,16 @@
     </head>
 
     <body>
-    <?php 
-        include 'common.php'; 	
+    <?php
+        require_once('util.php');
+        require_once('user_mgmt.php');
     ?>
 
     <?php
-        $validationFail = 0;
+        $validationFail = 1;
         //validating there is a value for each field
         if(isset($_POST['username']) && isset($_POST['password'])     ) {
+            $validationFail = 0;
         }
 
         /*  validating username, can't be empty         */
@@ -30,14 +32,14 @@
         if (empty($_POST["password"])) {
             $validationFail = $validationFail + 1;
         }
+        /* Check if username is already registered */
+        if(check_user_exists($_POST['username']) !== false){
+            $validationFail = $validationFail + 1;
+        }
+
         /*if validation passes with no errors append to userdetail.txt and welcome user */
         if ($validationFail == 0) {
-            $user_credentials = array();
-            $user_username=$_POST['username'];
-            $user_password=$_POST['password'];
-            $user = "\n" . $_POST["username"] ." " . $_POST["password"]; 
-            file_put_contents("userdetail.txt", $user, FILE_APPEND);
-
+            add_user($_POST['username'], $_POST['password']);
         ?>
         <legend>Congratulations, Your Sign Up was Successful!</legend>
         <?php

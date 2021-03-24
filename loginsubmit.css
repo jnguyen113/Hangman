@@ -23,6 +23,10 @@ legend{
     border: 2px solid black;
 }
 
+fieldset {
+    border:none;
+}
+
 #w3c{
     position: absolute;
     bottom: 0; 
