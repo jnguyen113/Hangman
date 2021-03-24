@@ -80,13 +80,13 @@ function user_record_game($user, $length, $correct_pct)
     if ($el['user'] == $user) {
       $data[$idx]['num_games'] = intval($data[$idx]['num_games']) + 1;
       /* update average phrase length as running average */
-      if (isset($data[$idx]['avg_length']) == null) {
+      if (!isset($data[$idx]['avg_length']) || $data[$idx]['avg_length'] == null) {
         $data[$idx]['avg_length'] = $length;
       } else {
         $data[$idx]['avg_length'] = (floatval($data[$idx]['avg_length']) + $length) / 2.0;
       }
       /* update average correct percentage as running average */
-      if (isset($data[$idx]['correct_pct']) == null) {
+      if (!isset($data[$idx]['correct_pct']) || $data[$idx]['correct_pct'] == null) {
         $data[$idx]['correct_pct'] = $correct_pct;
       } else {
         $data[$idx]['correct_pct'] = (floatval($data[$idx]['correct_pct']) + $correct_pct) / 2.0;

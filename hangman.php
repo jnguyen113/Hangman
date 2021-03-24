@@ -29,7 +29,7 @@ function hangman_acquire()
   if (isset($_SESSION['hangman_game']) && $_SESSION['hangman_game'] == true) {
   } else {
     /*Game not started but we somehow got here?*/
-    die("session not started!");
+    header("location:newgame.php");
   }
 }
 
@@ -134,7 +134,7 @@ EOT;
   echo $html;
   if (isset($_SESSION['UserData']['username'])) {
     user_record_game($_SESSION['UserData']['username'], $word_len, $pct);
-}
+  }
 }
 
 function hangman_output_image()

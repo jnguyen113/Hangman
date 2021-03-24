@@ -19,7 +19,7 @@
     <body>
     
     <?php
-        require_once('common.php');
+        require_once('util.php');
         require_once('user_mgmt.php');
     ?>
 

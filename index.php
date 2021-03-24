@@ -13,10 +13,10 @@
 	</head>
 
     <body>
-    <?php 
-        include 'common.php'; 	
+    <?php
+        require_once('util.php');
     ?>
-        <h1>Welcome to Hangman</h1>
+        <h1 id="welcome">Welcome to Hangman</h1>
         <img src="images/noose.png" alt="noose">
 
         <img src="images/step_6.png" alt="figure">

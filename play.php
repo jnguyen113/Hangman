@@ -13,6 +13,7 @@ session_start();
 
 require_once('hangman.php');
 require_once('util.php');
+require_once('user_mgmt.php');
 
 /* helper for debugging */
 if (isset($_REQUEST['destroy'])) {
@@ -87,6 +88,10 @@ hangman_parse_input();
       </div>
     </div>
   </div>
+  <?php
+  /* Footer */
+  footerFunction();
+  ?>
 </body>
 
 </html>

@@ -12,8 +12,8 @@
         <link href="loginsubmit.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-    <?php 
-        include 'common.php'; 	
+    <?php
+        require_once('util.php');
     ?>
         <br>
         <div id="form">

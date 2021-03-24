@@ -9,7 +9,7 @@ body{
     font-style: normal;
 }
 
-h1{
+#welcome h1{
     width: 1500px;
     margin: auto;
     font-size: 4em;
