@@ -19,7 +19,8 @@
         include 'common.php'; 	
     ?>
 
-    <?php session_start(); /* Starts the session */
+    <?php 
+        session_start(); /* Starts the session */
         $file = "userdetail.txt";
         $fh = fopen($file, 'r');
         $data = fread($fh, filesize($file));
