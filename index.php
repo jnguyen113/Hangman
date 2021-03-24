@@ -17,7 +17,7 @@ require_once('util.php');
 
 <body>
     <h1 id="welcome">Welcome to Hangman</h1>
-    <img src="images/noose.png" alt="noose">
+    <img src="images/Noose.png" alt="noose">
 
     <img src="images/step_6.png" alt="figure">
     <div id="buttons">

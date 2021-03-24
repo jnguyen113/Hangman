@@ -4,3 +4,4 @@ JJ,12345,3,4.25,57.145
 wea,programming,0,,
 cmu,science,1,9,69.23
 test,me,17,3,65.625
+bob,12345,3,6.25,40

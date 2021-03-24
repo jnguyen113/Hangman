@@ -10,13 +10,14 @@
  */
 
 
+ //Johnathan's part
 function footerFunction()
 {
   echo
     '
   <div id="w3c">
     <a href="https://validator.w3.org/#validate_by_input"><img src="images/xhtml.png" alt="xhtml val"></a>
-    <a href=""><img src="images/css.png" alt="css val"></a>
+    <a href="https://jigsaw.w3.org/css-validator/"><img src="images/css.png" alt="css val"></a>
   </div>
   ';
 }
