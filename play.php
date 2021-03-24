@@ -44,6 +44,7 @@ hangman_parse_input();
 
 <body>
   <?php
+  /* check win loss and update user stats */
   if (hangman_won()) {
     hangman_output_overlay("<span class=\"grn\">Well done!</span>");
   } else if (hangman_loss()) {
