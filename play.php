@@ -8,12 +8,11 @@
  * Copyright (c) 2021 Hayden Kowalchuk, Hayden Kowalchuk
  * License: BSD 3-clause "New" or "Revised" License, http://www.opensource.org/licenses/BSD-3-Clause
  */
+require_once('util.php');
+require_once('hangman.php');
+require_once('user_mgmt.php');
 
 session_start();
-
-require_once('hangman.php');
-require_once('util.php');
-require_once('user_mgmt.php');
 
 /* helper for debugging */
 if (isset($_REQUEST['destroy'])) {

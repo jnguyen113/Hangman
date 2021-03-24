@@ -4,9 +4,9 @@
  * Author: Johnathan Nguyen
  -->
 <?php
-session_start(); /* Starts the session */
 require_once('util.php');
 require_once('user_mgmt.php');
+session_start(); /* Starts the session */
 ?>
 <!DOCTYPE html>
 <html lang="en-us">

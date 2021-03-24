@@ -3,11 +3,14 @@
  * File: newgame.php
  * Project: Project 2
  * File Created: Sunday, 21st March 2021 3:50:23 pm
- * Author: Hayden Kowalchuk 
+ * Author: Hayden Kowalchuk
  * -----
  * Copyright (c) 2021 Hayden Kowalchuk, Hayden Kowalchuk
  * License: BSD 3-clause "New" or "Revised" License, http://www.opensource.org/licenses/BSD-3-Clause
  */
+
+require_once('util.php');
+require_once('hangman.php');
 
 session_start();
 //logout feature: johnathan's portion
@@ -16,8 +19,6 @@ if (!isset($_SESSION['UserData']['username'])) {
   exit;
 }
 
-require_once('hangman.php');
-require_once('util.php');
 
 /* reads categories to then read words */
 function read_categories()
