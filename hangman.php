@@ -67,9 +67,9 @@ function hangman_output_letters()
   for ($ch = ord('A'); $ch <= ord('Z'); ++$ch) {
     $char = chr($ch);
     if (in_array($char, _get("hangman_correct")) || in_array($char, _get("hangman_wrong"))) {
-      echo "<button class=\"letter\" disabled>" . $char . "</button>";
+      echo "<button class=\"letter\" disabled>" . $char . "</button>\n";
     } else {
-      echo "<button class=\"letter\" type=\"submit\" name=\"choice\" value=\"" . $char . "\">" . $char . "</button>";
+      echo "<button class=\"letter\" type=\"submit\" name=\"choice\" value=\"" . $char . "\">" . $char . "</button>\n";
     }
   }
   /* Unneeded */
@@ -81,7 +81,7 @@ function hangman_output_wrong()
 {
   $wrong = _get("hangman_wrong");
   foreach ($wrong as $letter) {
-    echo "<button class=\"letter\" disabled>" . $letter . "</button>";
+    echo "<button class=\"letter\" disabled>" . $letter . "</button>\n";
   }
 }
 
@@ -91,13 +91,13 @@ function hangman_output_word()
   $letters = str_split($word);
   foreach ($letters as $char) {
     if ($char == ' ') {
-      echo "<div class=\"underscore blank\">&nbsp;</div>";
+      echo "<div class=\"underscore blank\">&nbsp;</div>\n";
       continue;
     }
     if (in_array($char, _get("hangman_correct"))) {
-      echo "<div class=\"underscore\">" . $char . "</div>";
+      echo "<div class=\"underscore\">" . $char . "</div>\n";
     } else {
-      echo "<div class=\"underscore\">&nbsp;</div>";
+      echo "<div class=\"underscore\">&nbsp;</div>\n";
     }
   }
 }

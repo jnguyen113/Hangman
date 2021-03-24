@@ -11,17 +11,13 @@
 
 session_start();
 //logout feature: johnathan's portion
-if(!isset($_SESSION['UserData']['username'])){
+if (!isset($_SESSION['UserData']['username'])) {
   header("location:index.php");
   exit;
 }
-echo 	'<div id="footer">
-          <a href="logout.php"><img src="images/logout.png" alt="back width="100" height="100"></a>
-        </div>';
-//end of johnathan's portion
+
 require_once('hangman.php');
 require_once('util.php');
-backbutton();
 
 /* reads categories to then read words */
 function read_categories()
@@ -79,6 +75,7 @@ if (isset($_REQUEST['category'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hangman | New Game</title>
+  <link href="style.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
   <link href="play.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
 </head>
 
@@ -93,13 +90,21 @@ if (isset($_REQUEST['category'])) {
 
       while (!feof($fd)) {
         $result = trim(fgets($fd));
-        echo "<button class=\"center future\" type=\"submit\" name=\"category\" value=\"" . $result . "\"><h2>" . $result . "</h2></button>\n";
+        echo "<button class=\"center future large\" type=\"submit\" name=\"category\" value=\"" . $result . "\"><span class=\"large\">" . $result . "</span></button>\n";
       }
       fclose($fd);
-      echo "</form>";
       ?>
-    </div>
+    </form>
   </div>
+  <?php
+  //start of johnathan's portion
+  echo   '<div id="footer">
+  <a href="logout.php"><img src="images/logout.png" alt="logout" width="100" height="100"></a>
+</div>';
+  backbutton();
+  footerFunction();
+  //end of johnathan's portion
+  ?>
 </body>
 
 </html>

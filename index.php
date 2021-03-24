@@ -3,48 +3,42 @@
  * File Created: 3/20/21
  * Author: Johnathan Nguyen
  -->
+<?php
+require_once('util.php');
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Hangman</title>
-		<link href="style.css" type="text/css" rel="stylesheet">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <link href="style.css<?php echo '?' . rs(7); ?>" type="text/css" rel="stylesheet">
+</head>
 
-    <body>
+<body>
+    <h1 id="welcome">Welcome to Hangman</h1>
+    <img src="images/noose.png" alt="noose">
+
+    <img src="images/step_6.png" alt="figure">
+    <div id="buttons">
+        <a href="signup.php">
+            <div class="function">Sign Up</div>
+        </a>
+        <a href="login.php">
+            <div class="function">Log In</div>
+        </a>
+        <a href="newgame.php">
+            <div class="function">Play</div>
+        </a>
+        <a href="leaderboard.php">
+            <div class="function">Leaderboard</div>
+        </a>
+    </div>
+
     <?php
-        require_once('util.php');
+    //footer function
+    footerFunction();
     ?>
-        <h1 id="welcome">Welcome to Hangman</h1>
-        <img src="images/noose.png" alt="noose">
+</body>
 
-        <img src="images/step_6.png" alt="figure">
-        <div id="buttons">
-        
-        
-            <div class="left_button">
-                <a href="signup.php">
-                    <button class="function">Sign Up</button>
-                </a>
-                <a href="login.php">
-                    <button class="function">Log In</button>
-                </a>
-
-            </div>
-            <div class="right_button">
-                <a href="newgame.php">
-                    <button class="function">Play</button>
-                </a>
-                <a href="leaderboard.php">
-                    <button class="function">Leaderboard</button>
-                </a>
-            </div>
-        </div>
-        
-		<?php
-			//footer function 
-			footerFunction();
-		?>
-    </body>
 </html>

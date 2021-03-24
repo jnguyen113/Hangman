@@ -85,25 +85,26 @@ require_once('user_mgmt.php');
           $rank = ($idx < 3 ?  "&nbsp;" : $idx + 1);
           $html = <<<"EOT"
         <tr>
-          <td class="rank"><span class="{$rank_cat} ${medal}">{$rank}</span></span></td>
+          <td class="rank"><span class="{$rank_cat} ${medal}">{$rank}</span></td>
           <td>{$name}</td>
           <td>{$games}</td>
           <td>{$length} Letters</td>
           <td>{$pct}%</td>
           <td>{$comp}pts</td>
         </tr>
+
 EOT;
           echo $html;
         }
         ?>
-
       </tbody>
     </table>
-    <?php
-			//footer function
-			footerFunction();
-      backButton();
-		?>
+  </div>
+  <?php
+  //footer function
+  footerFunction();
+  backButton();
+  ?>
 </body>
 
 </html>

@@ -40,6 +40,7 @@ hangman_parse_input();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hangman | Play</title>
+  <link href="style.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
   <link href="play.css<?php echo '?' . rs(7); ?>" rel="stylesheet">
 </head>
 

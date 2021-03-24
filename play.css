@@ -256,21 +256,28 @@ button.letter[disabled] {
  font-size: 2em;
 }
 
-#back{
-    position: absolute;
-    left: 0;
-    bottom: 50%;
+.large {
+ font-size: 1.5em;
+ font-weight: bold;
+ margin-top: 0.75em;
+ margin-bottom: 0.75em;
 }
 
-#back:hover{
-   transform:scale(1.2);
+#back {
+ position: absolute;
+ left: 0;
+ bottom: 50%;
 }
 
-#footer{
-    position: absolute;
-    right: 50;
-    top: 50;
+#back:hover {
+ transform: scale(1.2);
 }
-#footer:hover{
-    transform:scale(1.2);
+
+#footer {
+ position: absolute;
+ top: 80%;
+}
+
+#footer:hover {
+ transform: scale(1.2);
 }
