@@ -28,3 +28,21 @@ function rs($length = 8)
   $rs = substr(str_shuffle($chars), 0, $length);
   return $rs;
 }
+
+/* Read file as csv into array */
+function csv2array($filename)
+{
+  $array = array_map('str_getcsv', file($filename));
+  return $array;
+}
+
+/* Write array to a csv file*/
+function array2csv($filename, $array)
+{
+  $fd = fopen($filename, "w");
+
+  foreach ($array as $line) {
+    fputcsv($fd, $line);
+  }
+  fclose($fd);
+}

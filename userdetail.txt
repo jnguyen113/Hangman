@@ -1,4 +1,5 @@
-joe 12345
-JJ 12345
-web programming
-computer science
+user,password,num_games,avg_length,correct_pct
+joe,12345,0,,
+JJ,12345,0,,
+web,programming,0,,
+computer,science,0,,
