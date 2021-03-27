@@ -9,6 +9,14 @@
  * License: BSD 3-clause "New" or "Revised" License, http://www.opensource.org/licenses/BSD-3-Clause
  */
 
+/* Debugging on CODD */
+/*
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+*/
+
+/* override for fixing session issues*/
+ini_set('session.save_path',dirname(__FILE__).'/tmp');
 
  //Johnathan's part
 function footerFunction()
