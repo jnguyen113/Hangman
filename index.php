@@ -34,6 +34,9 @@ require_once('util.php');
             <div class="function">Leaderboard</div>
         </a>
     </div>
+    <div id="summary">
+        <a href="summary.php">Leader Info & Summary</a>
+    </div>
 
     <?php
     //footer function
