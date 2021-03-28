@@ -55,7 +55,7 @@ hangman_parse_input();
   <div class="main flex">
     <div class="col_hangman">
       <div class="progress_container">
-        <img src="images/noose.png" alt="noose" id="noose">
+        <img src="images/Noose.png" alt="noose" id="noose">
         <?php
         //hangman_dump();
         hangman_output_image();
